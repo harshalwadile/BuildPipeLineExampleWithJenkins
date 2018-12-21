@@ -1,0 +1,14 @@
+---
+  - hosts: all
+    become: yes
+    gather_facts: no
+
+    tasks:
+    - name: Install httpd
+      yum: name=httpd state=present
+    - name: Copying httpd.conf
+      copy: src=httpd.conf dest=/etc/httpd/conf/httpd.conf
+    - name: Copying index file
+      copy: src=index.html dest=/var/www/html/index.html
+    - name: Restarting httpd Srvice
+      service: name=httpd state=restarted
