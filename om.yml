@@ -4,7 +4,7 @@
     gather_facts: no
 
     tasks:
-    - name: Install httpd
+    - name: Install httpd(Modified for branch testing)
       yum: name=httpd state=present
     - name: Copying httpd.conf
       copy: src=httpd.conf dest=/etc/httpd/conf/httpd.conf
